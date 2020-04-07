@@ -1,38 +1,92 @@
-/* #canvas{
-    background-color: #f00;
-    height: 100vh;
-    position: relative;
-    ;
-  
-}
-body{
-    margin: 0;
-    padding: 0;
-} */
-
 *{
     margin: 0;
     padding: 0;
 }
 
+ul, ol{
+    list-style: none;
+}
+body{
+    overflow: hidden;
+}
+
+.icon {
+       width: 1em; height: 1em;
+       vertical-align: -0.15em;
+       fill: currentColor;
+       overflow: hidden;
+       color: white;
+    }
 
 #canvas{
-    background: red;
+    background: gray;
     display: block;
 }
 .actions{
     position: fixed;
     left: 0;
-    bottom: 0;
+    top: 0;
+    padding: 20px;
 }
-.actions> #brush{
-    display: none
+.actions svg{
+    width: 1.5em;
+    height: 1.5em;
+    transition: all 0.3s;
+    margin: 0 5px;
+}
 
-}
-.actions.x > #brush{
-    display: inline-block;
+.actions svg.active{
+    fill:yellow;
+    transform:  scale(1.5);
 }
 
-.actions.x > #eraser{
-    display: none;
+.colors{
+    position: fixed;
+    top:60px;
+    left:28px;
+}
+
+.colors >li{
+    width: 20px;
+    height: 20px;
+    margin: 10px 0;
+    box-shadow: 0 0 3px rgba(0,0,0,0.3);
+    border-radius:50%;
+}
+.colors >li.black{
+    background: black;
+}
+.colors >li.white{
+    background: white;
+}
+.colors >li.green{
+    background: green;
+}
+.colors >li.blue{
+    background: blue;
+}
+
+.colors >li.active{
+    box-shadow: 0 0 3px rgba(0,0,0,0.9);
+    transform: scale(1.2);
+    transition: all 0.3s;
+}
+
+.sizes {
+    position: fixed;
+    right: 20px;
+    top: 20px;
+}
+.sizes li{
+    margin: 5px 5px 10px 5px;
+}
+.sizes > .thin{
+    height: 0;
+    width: 30px;
+    border-top: 5px solid white;
+}
+.sizes > .thick{
+    height: 0;
+    width: 30px;
+    border-top: 10px solid white;
 }

@@ -1,6 +1,7 @@
 
 var cvs = document.getElementById('canvas');
 var context = cvs.getContext('2d');
+var lineWidth =5
 //获取页面宽高
 aotoPageWidthAndHeight(cvs)
 /**** */
@@ -82,15 +83,15 @@ function listenToUser(canvas){
 function drawCircle(x, y, radius) {
     context.beginPath()
     context.arc(x, y, radius, 0, Math.PI * 2);
-    context.fillStyle="yellow";
+    // context.fillStyle="yellow";
     context.fill()
 }
 
 function drawLine(x1,y1,x2,y2){
     context.beginPath();
-    context.strokeStyle ="yellow"
+    // context.strokeStyle ="yellow"
     context.moveTo(x1,y1)
-    context.lineWidth = 5
+    context.lineWidth = lineWidth
     context.lineTo(x2,y2)
     context.stroke()
     context.closePath()
@@ -98,14 +99,73 @@ function drawLine(x1,y1,x2,y2){
 
 // button 橡皮擦
 var eraserEnabled = false
-eraser.onclick=function(){
-    eraserEnabled = true
-    actions.className = 'actions x'
-}
-brush.onclick = function () {
+pen.onclick = function(){
     eraserEnabled = false
-    actions.className = 'actions'
+    pen.classList.add('active')
+    eraser.classList.remove('active')
 }
+eraser.onclick = function(){
+    eraserEnabled = true
+    eraser.classList.add('active')
+    pen.classList.remove('active')
+}
+
+black.onclick = function () {
+    context.fillStyle = 'black'
+    context.strokeStyle = 'black'
+    black.classList.add('active')
+    white.classList.remove('active')
+    green.classList.remove('active')
+    blue.classList.remove('active')
+}
+
+white.onclick = function(){
+    context.fillStyle = 'white'
+    context.strokeStyle = 'white'
+    black.classList.remove('active')
+    white.classList.add('active')
+    green.classList.remove('active')
+    blue.classList.remove('active')
+}
+green.onclick = function () {
+    context.fillStyle = 'green'
+    context.strokeStyle = 'green'
+    black.classList.remove('active')
+    green.classList.add('active')
+    white.classList.remove('active')
+    blue.classList.remove('active')
+}
+blue.onclick = function () {
+    context.fillStyle = 'blue'
+    context.strokeStyle = 'blue'
+    black.classList.remove('active')
+    blue.classList.add('active')
+    white.classList.remove('active')
+    green.classList.remove('active')
+}
+
+thin.onclick = function (){
+    lineWidth =4
+}
+
+thick.onclick = function () {
+    lineWidth = 6
+}
+
+clear.onclick = function(){
+    context.clearRect(0, 0, cvs.width,cvs.height)
+}
+
+download.onclick = function(){
+    var url = cvs.toDataURL('image/png')
+    var a = document.createElement('a')
+    document.body.appendChild(a)
+    a.href = url
+    a.download= '我下载的画儿'
+    a.target = "_blank"
+    a.click()
+}
+
 
 //
 function aotoPageWidthAndHeight(cvs) {
