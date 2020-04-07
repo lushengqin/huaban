@@ -1,0 +1,38 @@
+/* #canvas{
+    background-color: #f00;
+    height: 100vh;
+    position: relative;
+    ;
+  
+}
+body{
+    margin: 0;
+    padding: 0;
+} */
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+
+#canvas{
+    background: red;
+    display: block;
+}
+.actions{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+}
+.actions> #brush{
+    display: none
+
+}
+.actions.x > #brush{
+    display: inline-block;
+}
+
+.actions.x > #eraser{
+    display: none;
+}
