@@ -4,42 +4,77 @@ var context = cvs.getContext('2d');
 //获取页面宽高
 aotoPageWidthAndHeight(cvs)
 /**** */
-listenToMouse(cvs)
-function listenToMouse(canvas){
+listenToUser(cvs)
+function listenToUser(canvas){
 
     var using = false
     var lastPoint = { x: undefined, y: undefined }
 
-    canvas.onmousedown = function (a) {
-        var x = a.clientX
-        var y = a.clientY
-        using = true
-        if (eraserEnabled) {
-            context.clearRect(x - 5, y - 5, 10, 10)
-        } else {
-            lastPoint = { "x": x, "y": y }
-            // drawCircle(x,y,2)
+    //特性检测
+    if(document.body.ontouchstart !== undefined){
+        //触屏设备
+        canvas.ontouchstart = function(a){
+           var x= a.touches[0].clientX;
+           var y= a.touches[0].clientY
+           using = true
+           if(eraserEnabled){
+               context.clearRect(x-5,y-5,10,10)
+           }else{
+               lastPoint={x:x,y:y}
+           }
         }
-    }
-    canvas.onmousemove = function (a) {
-        var x = a.clientX
-        var y = a.clientY
-        if(!using){
-            return;
+        canvas.ontouchmove = function (a) {
+            var x = a.touches[0].clientX
+            var y = a.touches[0].clientY
+            if (!using) {
+                return;
+            }
+            if (eraserEnabled) {
+                context.clearRect(x - 5, y - 5, 10, 10)
+            } else {
+                var newPoint = { "x": x, "y": y }
+                drawCircle(x, y, 2)
+                drawLine(lastPoint.x, lastPoint.y, newPoint.x, newPoint.y)
+                lastPoint = newPoint
+            }
         }
-        if (eraserEnabled) {
-            context.clearRect(x - 5, y - 5, 10, 10)
-        } else {
-            var newPoint = { "x": x, "y": y }
-            drawCircle(x, y, 2)
-            drawLine(lastPoint.x, lastPoint.y, newPoint.x, newPoint.y)
-            lastPoint = newPoint
+        canvas.ontouchend = function (a) {
+            using = false
         }
-    }
+    }else{
+        //非触屏设备
+        canvas.onmousedown = function (a) {
+            var x = a.clientX
+            var y = a.clientY
+            using = true
+            if (eraserEnabled){
+                context.clearRect(x - 5, y - 5, 10, 10)
+            } else {
+                lastPoint = { "x": x, "y": y }
+                // drawCircle(x,y,2)
+            }
+        }
+        canvas.onmousemove = function (a) {
+            var x = a.clientX
+            var y = a.clientY
+            if (!using) {
+                return;
+            }
+            if (eraserEnabled) {
+                context.clearRect(x - 5, y - 5, 10, 10)
+            } else {
+                var newPoint = { "x": x, "y": y }
+                drawCircle(x, y, 2)
+                drawLine(lastPoint.x, lastPoint.y, newPoint.x, newPoint.y)
+                lastPoint = newPoint
+            }
+        }
 
-    canvas.onmouseup = function (aaa) {
-        using = false
+        canvas.onmouseup = function (aaa) {
+            using = false
+        }
     }
+    
 }
 
 
