@@ -1,0 +1,37 @@
+{
+  "id": "1670553",
+  "name": "manvas",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "196256",
+      "name": "clear",
+      "font_class": "clear",
+      "unicode": "e61c",
+      "unicode_decimal": 58908
+    },
+    {
+      "icon_id": "11101312",
+      "name": "down",
+      "font_class": "down2",
+      "unicode": "e629",
+      "unicode_decimal": 58921
+    },
+    {
+      "icon_id": "2986842",
+      "name": "pen",
+      "font_class": "weibiaoti-",
+      "unicode": "e626",
+      "unicode_decimal": 58918
+    },
+    {
+      "icon_id": "486894",
+      "name": "eraser_click",
+      "font_class": "eraserclick",
+      "unicode": "e7d6",
+      "unicode_decimal": 59350
+    }
+  ]
+}
