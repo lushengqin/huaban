@@ -1,4 +1,3 @@
-
 var cvs = document.getElementById('canvas');
 var context = cvs.getContext('2d');
 var lineWidth =5
@@ -161,10 +160,22 @@ download.onclick = function(){
     var a = document.createElement('a')
     document.body.appendChild(a)
     a.href = url
+    // a.innerHTML ="wodehua"
     a.download= '我下载的画儿'
     a.target = "_blank"
     a.click()
+    
 }
+//     var link = document.createElement("a");
+//     link.innerHTML = 'fileName';
+//     link.download = 'fileName.jpg';
+//     link.href = imgUrl;
+//     let evt = document.createEvent('MouseEvents');
+//     evt.initEvent('click', true, true);
+//     link.dispatchEvent(evt);
+// }
+
+
 
 
 //

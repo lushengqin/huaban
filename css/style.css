@@ -6,9 +6,9 @@
 ul, ol{
     list-style: none;
 }
-body{
+/* body{
     overflow: hidden;
-}
+} */
 
 .icon {
        width: 1em; height: 1em;
@@ -19,8 +19,12 @@ body{
     }
 
 #canvas{
-    background: gray;
+    background:red;
     display: block;
+    /* 解决手机滑动问题 */
+    /* position: fixed; */
+    top:0;
+    left: 0;
 }
 .actions{
     position: fixed;

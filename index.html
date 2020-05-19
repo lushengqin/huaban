@@ -1,40 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="biewport" content="width=device-width,user-scalable=no,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0">
+    <meta name="viewport"content="width=device-width,user-scalable=no,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0">
     <title>我的canvas画板</title>
     <link rel="stylesheet" href="css/style.css">
-    <script src="http://at.alicdn.com/t/font_1670553_9sve0ly8k9a.js"></script>
+
+
 </head>
+
 <body>
-    <canvas id="canvas"  width="400" height="200" ></canvas>
-    <div id="actions" class="actions ">
-        <svg id="pen" class="icon active" aria-hidden="true">
-            <use xlink:href="#icon-weibiaoti-"></use>
-        </svg>
-        <svg id="eraser" class="icon" aria-hidden="true">
-            <use xlink:href="#icon-eraserclick"></use>
-        </svg>
-        <svg id="clear" class="icon" aria-hidden="true">
-            <use xlink:href="#icon-clear"></use>
-        </svg>
-        <svg id="download" class="icon" aria-hidden="true">
-            <use xlink:href="#icon-down2"></use>
-        </svg>
+    <div style="overflow: auto;min-height: 100vh">
+        <canvas id="canvas" width="400" height="200"></canvas>
+        <div id="actions" class="actions ">
+            <svg id="pen" class="icon active" aria-hidden="true">
+                <use xlink:href="#icon-weibiaoti-"></use>
+            </svg>
+            <svg id="eraser" class="icon" aria-hidden="true">
+                <use xlink:href="#icon-eraserclick"></use>
+            </svg>
+            <svg id="clear" class="icon" aria-hidden="true">
+                <use xlink:href="#icon-clear"></use>
+            </svg>
+            <svg id="download" class="icon" aria-hidden="true">
+                <use xlink:href="#icon-down2"></use>
+            </svg>
+        </div>
+        <ol class="colors">
+            <li id="black" class="black active"></li>
+            <li id="white" class="white"></li>
+            <li id="green" class="green "></li>
+            <li id="blue" class="blue"></li>
+        </ol>
+        <ol class="sizes">
+            <li id="thin" class="thin"></li>
+            <li id="thick" class="thick"></li>
+        </ol>
     </div>
-    <ol class="colors">
-        <li id="black" class="black active"></li>
-        <li id="white" class="white"></li>
-        <li id="green" class="green "></li>
-        <li id="blue" class="blue"></li>
-    </ol>
-    <ol class="sizes">
-        <li id="thin" class="thin"></li>
-        <li id="thick" class="thick"></li>
-    </ol>
 
     <script src="js/main.js"></script>
+    <script src="//at.alicdn.com/t/font_1670553_9sve0ly8k9a.js"></script>
 </body>
+
 </html>
